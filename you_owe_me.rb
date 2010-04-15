@@ -6,11 +6,12 @@ require 'digest/sha1'
 
 class YouOweMe < Sinatra::Base
   register Mustache::Sinatra
+  require 'views/layout'
 
   set :public, File.dirname(__FILE__) + '/public'
   set :mustache, {
-    :views     => 'views/',
-    :templates => 'templates/'
+    :views     => 'views',
+    :templates => 'templates'
   }
 
   configure do
