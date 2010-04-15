@@ -1,0 +1,13 @@
+<form action="/create" method="POST">
+  <p>
+    <input type="text" name="debt[debtor]" id="debt-debtor" /> owes <input type="text" name="debt[collector]" id="debt-collector" />
+    <select name="debt[quantity]" id="debt-quantity">
+      {{{options_for_quantity}}}
+    </select> 
+    <select name="debt[item]" id="debt-item">
+      {{{options_for_item}}}
+    </select>
+  
+    <input type="submit" value="Create" />
+</form>
+
