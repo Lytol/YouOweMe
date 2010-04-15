@@ -1,13 +1,21 @@
-<form action="/create" method="POST">
+{{{error_messages_for_debt}}}
+
+<form action="/debts" method="POST">
   <p>
-    <input type="text" name="debt[debtor]" id="debt-debtor" /> owes <input type="text" name="debt[collector]" id="debt-collector" />
+    <input type="text" name="debt[debtor]" id="debt-debtor" /><br />
+    hereby unconditionally promises to pay<br />
+    <input type="text" name="debt[collector]" id="debt-collector" /><br />
+    the sum of <br />
     <select name="debt[quantity]" id="debt-quantity">
       {{{options_for_quantity}}}
     </select> 
     <select name="debt[item]" id="debt-item">
       {{{options_for_item}}}
-    </select>
+    </select><br />
+    for<br />
+    <textarea name="debt[notes]" id="debt-notes"></textarea>
+  </p>
   
-    <input type="submit" value="Create" />
+  <p><input type="submit" value="I Agree" /></p>
 </form>
 

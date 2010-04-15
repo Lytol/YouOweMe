@@ -20,6 +20,15 @@ class YouOweMe
         ]
         options_for_item.join("\n")
       end
+      
+      def error_messages_for_debt
+        return unless defined?(@debt) && !@debt.errors.empty?
+        errors = []
+        @debt.errors.each do |e|
+          errors << "<li>#{e}</li>"
+        end
+        "<ul class=\"error-messages\">\n" + errors.join("\n") + "\n</ul>\n"
+      end
     end
   end
 end
