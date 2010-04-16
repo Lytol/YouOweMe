@@ -15,7 +15,7 @@ strong { font-weight: bold; }
 form#debt-form { margin-top: 50px; }
 form#debt-form input[type=text], form#debt-form textarea { padding: 5px 10px; width: 17em; text-align: center; border: 2px solid #555; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
 form#debt-form select { margin-top: 25px; text-align: center; }
-form#debt-form select#debt-quantity { width: 3.0em; margin-right: 10px; }
+form#debt-form select#debt-quantity { width: 3.5em; margin-right: 10px; }
 form#debt-form select#debt-item { width: 9em; }
 form#debt-form input#debt-item-custom { margin-top: 10px; width: 8em; }
 form#debt-form a { color: #777; font-size: 0.65em; margin-left: 10px; }
