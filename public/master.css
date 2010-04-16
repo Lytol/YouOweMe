@@ -1,3 +1,30 @@
 html { font-family: "Georgia", serif; font-size: 125%; }
 
-#content { width: 950px; margin: 0 auto; text-align: center; line-height: 175%; }
+a { color: #03C; }
+a:hover, a:active { text-decoration: none; }
+a:link, a:visited { text-decoration: underline; }
+
+strong { font-weight: bold; }
+
+.default-text { color: #AAA; }
+
+.error-messages { margin-bottom: 35px; padding-bottom: 25px; color: #933; border-bottom: 1px dotted #CCC; }
+
+#content { width: 950px; margin: 50px auto; text-align: center; line-height: 200%; }
+
+form#debt-form input[type=text], form#debt-form textarea { padding: 5px 10px; width: 17em; text-align: center; border: 2px solid #555; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+form#debt-form select { margin-top: 25px; text-align: center; }
+form#debt-form select#debt-quantity { width: 4em; margin-right: 10px; }
+form#debt-form select#debt-item { width: 9em; }
+form#debt-form input#debt-item-custom { margin-top: 10px; width: 8em; }
+form#debt-form a { color: #777; font-size: 0.65em; margin-left: 10px; }
+form#debt-form a:active, form#debt-form a:hover { text-decoration: none; }
+form#debt-form a:link, form#debt-form a:visited { text-decoration: underline; }
+form#debt-form textarea { height: 2.5em; }
+
+p.created .item-with-quantity { display: block; font-size: 2em; padding: 25px 0; }
+
+p.notes { font-size: 0.8em; color: #888; }
+p.notes strong { font-weight: normal; color: #222; }
+
+p.return { text-align: right; margin-top: 50px; }

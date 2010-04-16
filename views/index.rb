@@ -29,6 +29,13 @@ class YouOweMe
         end
         "<ul class=\"error-messages\">\n" + errors.join("\n") + "\n</ul>\n"
       end
+      
+      def random_note
+        notes = [
+          "sucking at bowling"
+        ]
+        notes[rand(notes.size)]
+      end
     end
   end
 end

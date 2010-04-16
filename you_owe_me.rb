@@ -26,7 +26,7 @@ class YouOweMe < Sinatra::Base
   post '/debts' do
     @debt = Debt.new(params[:debt])
     if @debt.save
-      redirect "/debts/#{@debt.token}"
+      mustache :created
     else
       mustache :index
     end

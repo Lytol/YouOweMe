@@ -3,7 +3,7 @@ class YouOweMe
     class Layout < Mustache
 
       def title
-        @title || "Nag your friends when they owe you something"
+        @title || "You Owe Me"
       end
       
     end
