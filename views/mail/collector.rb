@@ -15,7 +15,7 @@ class YouOweMe
     end
 
     def debt_url
-      "http://youoweme.heroku.com/debts/#{@debt.token}"
+      "http://youoweme.mobi/debts/#{@debt.token}"
     end
   end
 end
