@@ -52,8 +52,8 @@ class Debt
   property :created_at, DateTime
   property :payed_at,   DateTime
   
-  validates_present   :collector, :debtor, :quantity, :item, :notes
-  validates_format    :collector, :debtor, :as => :email_address
+  validates_present   :debtor,:collector, :quantity, :item, :notes
+  validates_format    :debtor, :collector, :as => :email_address
   validates_is_number :quantity, :integer_only => true, :gt => 0
   
   before :create do

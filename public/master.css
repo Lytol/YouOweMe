@@ -1,4 +1,4 @@
-html { font-family: "Georgia", serif; font-size: 125%; }
+html { font-family: "Georgia", serif; font-size: 125%; color: #222; }
 
 a { color: #03C; }
 a:hover, a:active { text-decoration: none; }
@@ -22,6 +22,7 @@ form#debt-form a:active, form#debt-form a:hover { text-decoration: none; }
 form#debt-form a:link, form#debt-form a:visited { text-decoration: underline; }
 form#debt-form textarea { height: 2.5em; }
 
+p.created .collector, p.created .debtor { font-weight: bold; }
 p.created .item-with-quantity { display: block; font-size: 2em; padding: 25px 0; }
 
 p.notes { font-size: 0.8em; color: #888; }
