@@ -19,7 +19,7 @@ class YouOweMe
       end
       
       def cancel_debt_url
-        "/debt/#{@debt.token}/cancel"
+        "/debts/#{@debt.token}/cancel"
       end
     end
   end

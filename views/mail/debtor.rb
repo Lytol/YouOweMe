@@ -18,10 +18,10 @@ class YouOweMe
       "#{@debt.quantity} #{@debt.item}"
     end
     
-    def motiviational_quote
+    def motivational_quote
       quotes = [
         "Don't make me send over my muscle!",
-        "You're a bum and you'll always be a bum &mdash; until you pay me, at least, then you'll be my friend again.",
+        "You're a bum and you'll always be a bum -- until you pay me, at least, then you'll be my friend again.",
         "I'm holding your dog hostage at an unnamed location. Let's not make me do anything rash...",
         "Have you ever had two broken legs? Well, you're headed in the right direction for 'em."
       ]
