@@ -15,7 +15,8 @@ class YouOweMe < Sinatra::Base
   set :mustache, {
     :views     => 'views',
     :templates => 'templates' }
-  set :smtp_options, {
+    
+  SMTP_OPTIONS =  {
     :host     => "smtp.sendgrid.net",
     :port     => "25",
     :auth     => :plain,
@@ -44,14 +45,14 @@ class YouOweMe < Sinatra::Base
         :subject  => "[YouOweMe] #{params[:debt][:debtor]} owes you #{params[:debt][:quantity]} #{params[:debt][:item]}",
         :body     => CollectorMail.new(@debt).render,
         :via      => :smtp,
-        :smtp     => settings.smtp_options)
+        :smtp     => SMTP_OPTIONS)
       Pony.mail(
         :to       => params[:debt][:debtor],
         :from     => params[:debt][:collector],
         :subject  => "You owe me #{params[:debt][:quantity]} #{params[:debt][:item]}",
         :body     => DebtorMail.new(@debt).render,
         :via      => :smtp,
-        :smtp     => settings.smtp_options)
+        :smtp     => SMTP_OPTIONS)
       mustache :created
     else
       mustache :index
