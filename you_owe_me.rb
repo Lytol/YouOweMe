@@ -42,16 +42,16 @@ class YouOweMe < Sinatra::Base
     
     if @debt.save
       Pony.mail(
-        :to       => params[:debt][:collector],
+        :to       => @debt.collector,
         :from     => "no-reply@youoweme.mobi",
-        :subject  => "[YouOweMe] #{params[:debt][:debtor]} owes you #{params[:debt][:quantity]} #{params[:debt][:item]}",
+        :subject  => "[YouOweMe] #{@debt.debtor} owes you #{@debt.quantity} #{@debt.item}",
         :body     => CollectorMail.new(@debt).render,
         :via      => :smtp,
         :smtp     => SMTP_OPTIONS)
       Pony.mail(
-        :to       => params[:debt][:debtor],
-        :from     => params[:debt][:collector],
-        :subject  => "You owe me #{params[:debt][:quantity]} #{params[:debt][:item]}",
+        :to       => @debt.debtor,
+        :from     => @debt.collector,
+        :subject  => "You owe me #{@debt.quantity} #{@debt.item}",
         :body     => DebtorMail.new(@debt).render,
         :via      => :smtp,
         :smtp     => SMTP_OPTIONS)
