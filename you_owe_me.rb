@@ -3,16 +3,28 @@ require 'mustache/sinatra'
 require 'dm-core'
 require 'dm-validations'
 require 'digest/sha1'
+require 'pony'
 
 class YouOweMe < Sinatra::Base
   register Mustache::Sinatra
+
   require 'views/layout'
 
+  set :root, File.dirname(__FILE__)
   set :public, File.dirname(__FILE__) + '/public'
   set :mustache, {
     :views     => 'views',
-    :templates => 'templates'
-  }
+    :templates => 'templates' }
+  set :smtp_options, {
+    :host     => "smtp.sendgrid.net",
+    :port     => "25",
+    :auth     => :plain,
+    :user     => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain   => ENV['SENDGRID_DOMAIN'] }
+
+  require 'views/mail/collector'
+  require 'views/mail/debtor'
 
   configure do
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/youoweme')
@@ -26,6 +38,18 @@ class YouOweMe < Sinatra::Base
   post '/debts' do
     @debt = Debt.new(params[:debt])
     if @debt.save
+      Pony.mail(
+        :to       => params[:debt][:collector],
+        :from     => "no-reply@youoweme.mobi",
+        :subject  => "[YouOweMe] #{params[:debt][:debtor]} owes you #{params[:debt][:quantity]} #{params[:debt][:item]}",
+        :body     => CollectorMail.new(@debt).render,
+        :via      => :sendmail)
+      Pony.mail(
+        :to       => params[:debt][:debtor],
+        :from     => params[:debt][:collector],
+        :subject  => "You owe me #{params[:debt][:quantity]} #{params[:debt][:item]}",
+        :body     => DebtorMail.new(@debt).render,
+        :via      => :sendmail)
       mustache :created
     else
       mustache :index

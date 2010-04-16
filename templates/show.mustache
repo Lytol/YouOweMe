@@ -1,3 +1,15 @@
-<h2>A debt of {{item_with_quantity}} is still owed</h2>
+<p id="debt-overview">
+  <span class="debtor">{{debtor}}</span> still owes you
+  <span class="item-with-quantity">{{{item_with_quantity}}}</span>
+  <span class="for">This was for: {{notes}}</span>
+</p>
 
-<p>{{debtor}} owes {{collector}} {{item_with_quantity}}</p>
+<form method="POST" action="{{cancel_debt_url}}" id="debt-cancel">
+  <input type="submit" value="Cancel Debt &mdash; they either paid or I'm sick of waiting" />
+</form>
+
+<p class="notes">
+  We're continuing to send <strong>{{debtor}}</strong> emails to remind them &mdash; just hang in there!
+</p>
+
+<p class="return"><a href="/">&laquo; Return to Home</a></p>

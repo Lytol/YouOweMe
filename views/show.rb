@@ -13,6 +13,14 @@ class YouOweMe
       def item_with_quantity
         "<span class=\"quantity\">#{@debt.quantity}</span> #{@debt.item}"
       end
+      
+      def notes
+        @debt.notes
+      end
+      
+      def cancel_debt_url
+        "/debt/#{@debt.token}/cancel"
+      end
     end
   end
 end
