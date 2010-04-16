@@ -38,6 +38,8 @@ class YouOweMe < Sinatra::Base
   
   post '/debts' do
     @debt = Debt.new(params[:debt])
+    @debt.item = params[:'debt-item-custom'] if params[:'debt-item-custom'] && params[:'debt-item-custom'] != ""
+    
     if @debt.save
       Pony.mail(
         :to       => params[:debt][:collector],

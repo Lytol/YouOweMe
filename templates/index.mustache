@@ -12,7 +12,9 @@
     </select> 
     <select name="debt[item]" id="debt-item">
       {{{options_for_item}}}
-    </select><br />
+    </select>
+    <input type="text" name="debt-item-custom" id="debt-item-custom" style="display: none" />
+    <a href="#" onclick="$('#debt-item').toggle(); $('#debt-item-custom').toggle(); $('#debt-item-custom').val(''); return false">Something Else?</a><br />
     for<br />
     <textarea name="debt[notes]" id="debt-notes" title="{{random_note}}" class="default-text"></textarea>
   </p>
